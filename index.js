@@ -16,9 +16,12 @@ function update() {
     if (started) {
         $("h1").html(`Round  <span class="badge badge-primary" style="color:white">${level}</span>`);
         $("h1").attr("class", "text-primary")
+        $("#alert").html(`<strong>Press !! </strong>all ${level} colours in order`);
+        
     }
     else {
         if (level == 0) { $("h1").html(`Press <span class="badge badge-secondary">S</span> To Start The Game`); }
+        $("#alert").html("<strong>Rules !! </strong>Press S To Start Game (Remember order of color given by system)");
         $("h1").attr("class", "title")
     }
 
@@ -70,7 +73,8 @@ $(".btnk").click(function () {
 function checkAnswer(currentlevel) {
     if (userEntery[currentlevel] == random[currentlevel]) {
         if (random.length - 1 == currentlevel) {
-            gen();
+            setTimeout(gen,300);
+            
         }
     } else {
         console.log("end");
