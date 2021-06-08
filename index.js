@@ -77,7 +77,7 @@ function checkAnswer(currentlevel) {
             
         }
     } else {
-        console.log("end");
+        
         soundplay("wrong");
         $("body").css("background-color", "red");
         setTimeout(function () { $("body").css("background-color", "white"); }, 300);
@@ -108,9 +108,15 @@ function recordt() {
     }
     if (level <= prev) {
 
+       if(level==0){
+        $("#score").html(`Press S To Start The Game First`);
+        $("#score").css("display", "block");
+        setTimeout(() => { $("#score").css("display", "none"); }, 5000);
+       }else{
         $("#score").html(`Your Score is ${level} keep trying<br>Highest Score ${prev}`);
         $("#score").css("display", "block");
         setTimeout(() => { $("#score").css("display", "none"); }, 5000);
+       }
 
     } else {
 
